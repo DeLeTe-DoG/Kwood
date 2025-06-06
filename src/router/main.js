@@ -1,0 +1,15 @@
+import { createRouter, createMemoryHistory } from "vue-router";
+import MainView from "@/views/MainView.vue";
+const routes = [
+    {
+        path: '/',
+        name: 'main',
+        component: MainView,
+    }
+]
+const router = createRouter({
+    routes,
+    history: createMemoryHistory()
+})
+
+export default router
