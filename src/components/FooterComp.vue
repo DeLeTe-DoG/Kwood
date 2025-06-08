@@ -58,10 +58,10 @@
         // padding-bottom: 30px !important;
 
         @media(max-width: 600px) {
-            padding: 20px 15px 15px 15px;
+            padding: 20px 15px 15px 15px !important;
             gap: unset;
             justify-content: space-between;
-            margin: 0;
+            margin: 0 !important;
             width: 100%;
         }
 
