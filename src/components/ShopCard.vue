@@ -1,0 +1,98 @@
+<template>
+    <div class="top-item">
+        <div class="top-item__img">
+            <img :src='item.img' alt="">
+        </div>
+        <div class="top-item__body">
+            <h4 cass="top-item__cost">{{ item.cost }} ₽</h4>
+            <div class="top-item__body__wrapper">
+                <h3 class="top-item__name">{{ item.name }}</h3>
+                <p class="top-item__material">{{ item.material }}</p>
+            </div>
+            <ButtonComp />
+        </div>
+    </div>
+</template>
+
+<script>
+import ButtonComp from '@/components/ButtonComp.vue'
+
+export default {
+    props: {
+        item: {
+            type: Object,
+            required: true,
+        }
+    },
+    components: { ButtonComp }
+}
+</script>
+
+<style lang="scss">
+    $grey-color: #CCD0CF;
+
+
+.top-item {
+    width: 280px !important;
+    height: 350px;
+    border-radius: 16px;
+    border: 2px solid #9BA8AB;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media(max-width: 600px) {
+        width: 163px !important;
+        height: 215px;
+        justify-content: unset;
+        gap: 10px;
+
+        .main-button {
+            font-size: 12px;
+            height: 30px;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: max-content;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px 16px 0 0;
+        }
+    }
+
+    &__body {
+        padding: 0 15px 10px 15px;
+        display: flex;
+        // justify-content: flex-end;
+        flex-direction: column;
+        gap: 10px;
+
+        @media(max-width: 600px) {
+            gap: unset;
+            justify-content: space-between;
+            padding: 0 8px 5px 8px;
+            height: 100%;
+        }
+    }
+
+    &__cost {
+        @media(max-width: 600px) {
+            font-size: 12px;
+        }
+    }
+
+    // &__name{}
+    &__material {
+        font-size: 14px;
+        color: $grey-color;
+
+        @media(max-width: 600px) {
+            font-size: 12px;
+        }
+    }
+}
+</style>

@@ -1,3 +1,42 @@
 html{
     overflow-x: hidden;
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: 'Montserrat';
+}
+h1{
+    font-size: 48px;
+}
+h2, p{
+    font-size: 24px;
+}
+@media (max-width: 600px) {
+        h2{
+            font-size: 14px;
+        }
+        p{
+            font-size: 12px;
+        }
+        h1{
+            font-size: 24px;
+        }
+    }
+h3{
+    font-size: 14px;
+}
+h4{
+    font-size: 12px;
+}
+span{
+    color: #CCD0CF;
+}
+a{
+    text-decoration: none;
+}
+body{
+    background-color: #253745;
+}
