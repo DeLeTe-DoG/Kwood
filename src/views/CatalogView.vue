@@ -10,10 +10,9 @@
 </template>
 
 <script>
-    import heart_box from '@/assets/images/goods-photos/heart-box.png'
-    import twin_rings_box from '@/assets/images/goods-photos/twin-rings-box.png'
-    import ring_heart_box from '@/assets/images/goods-photos/ring-heart-box.png'
-
+    import heart_box from '@/assets/images/goods-photos/heart-pendant/heart-box.png'
+    import twin_rings_box from '@/assets/images/goods-photos/twin-rings/twin-rings-box.png'
+    import ring_heart_box from '@/assets/images/goods-photos/heart-ring/ring-heart-box.png'
     import HeaderComp from '@/components/HeaderComp.vue'
     import FooterComp from '@/components/FooterComp.vue'
     import ShopCard from '@/components/ShopCard.vue'

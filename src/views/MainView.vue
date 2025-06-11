@@ -23,7 +23,7 @@
                 навыки в работе с природными материалами
             </span></p>
         </div>
-        <img class="about-us__img" src="@/assets/images/goods-photos/heart-box.png" alt="...">
+        <img class="about-us__img" src="@/assets/images/goods-photos/heart-pendant/heart-box.png" alt="...">
     </section>
     <section class="bestsellers" id="bestsellers">
         <h1 class="bestsellers__title section-title">Популярное</h1>
@@ -97,9 +97,9 @@
 </template>
 
 <script>
-    import heart_box from '@/assets/images/goods-photos/heart-box.png'
-    import twin_rings_box from '@/assets/images/goods-photos/twin-rings-box.png'
-    import ring_heart_box from '@/assets/images/goods-photos/ring-heart-box.png'
+    import heart_box from '@/assets/images/goods-photos/heart-pendant/heart-box.png'
+    import twin_rings_box from '@/assets/images/goods-photos/twin-rings/twin-rings-box.png'
+    import ring_heart_box from '@/assets/images/goods-photos/heart-ring/ring-heart-box.png'
     import ButtonComp from '@/components/ButtonComp.vue'
     import HeaderComp from '@/components/HeaderComp.vue'
     import {RouterLink} from 'vue-router'
@@ -349,7 +349,7 @@
             grid-area: A;
             width: 100%;
             height: 100%;
-            background: url('@/assets/images/goods-photos/faceted-ring.jpg') center;
+            background: url('@/assets/images/goods-photos/faceted-ring/faceted-ring.jpg') center;
             background-size: cover;
             position: relative;
             img{
@@ -379,13 +379,13 @@
         &__img-two{
             grid-area: B;
             width: 100%;
-            background: url('@/assets/images/goods-photos/twin-rings-box.png') center;
+            background: url('@/assets/images/goods-photos/twin-rings/twin-rings-box.png') center;
             background-size: cover;
         }
         &__img-three{
             grid-area: C;
             width: 100%;
-            background: url('@/assets/images/goods-photos/heart2.png') center;
+            background: url('@/assets/images/goods-photos/heart-pendant/heart2.png') center;
             background-size: cover;
         }
     }
