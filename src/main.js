@@ -2,7 +2,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import { createRouter, createMemoryHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import MainView from './views/MainView.vue'
 import CatalogView from './views/CatalogView.vue'
 
@@ -21,7 +21,7 @@ const routes = [
 
 const router = createRouter({
     routes,
-    history: createMemoryHistory(),
+    history: createWebHistory(),
 })
 
 const app = createApp(App)

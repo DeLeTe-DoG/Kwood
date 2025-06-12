@@ -1,5 +1,5 @@
 <template>
-    <HeaderComp />
+    <HeaderComp :page_name="'main'" />
     <section class="banner">
         <div class="banner__text">
             <h1 class="banner__text__title desktop">Kwood - украшения ручной<br>работы</h1>
@@ -93,7 +93,7 @@
             </div>
         </div>
     </section>
-    <FooterComp />
+    <FooterComp :page_name="'main'" />
 </template>
 
 <script>

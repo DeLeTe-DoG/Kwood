@@ -27,11 +27,13 @@
             </svg>
         </div>
         <ul class="footer__menu">
-            <li><a href="/#about_us">О нас</a></li>
-            <li><a href="/#bestsellers">Бестселлеры</a></li>
+            <li v-if="page_name == 'main'"><a href="#about_us">О нас</a></li>
+            <li v-if="page_name == 'main'"><a href="#bestsellers">Бестселлеры</a></li>
             <!-- <li><a href="#materials"></a>материалы</li> -->
-            <li><RouterLink to="catalog">Каталог</RouterLink></li>
-
+            <li>
+                <RouterLink v-if="page_name == 'main'" to="/catalog">Каталог</RouterLink>
+                <RouterLink v-if="page_name == 'catalog'" to="/">Главная</RouterLink>
+            </li>
             <!-- Open order popup here -->
             <li><a href="#order">Заказать украшение</a></li>
         </ul>
@@ -43,6 +45,12 @@
 
     export default {
         components: {},
+        props: {
+            page_name: {
+                type: String,
+                required: true,
+            }
+        }
     }
 </script>
 

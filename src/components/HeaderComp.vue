@@ -4,11 +4,12 @@
             <img src="@/assets/images/project-logo.png" class="header__logo" alt="logo">
         </RouterLink>
         <ul class="header__nav">
-            <li><a href="#about_us">О нас</a></li>
-            <li><a href="#bestsellers">Бестселлеры</a></li>
+            <li v-if="page_name == 'main'"><a href="#about_us">О нас</a></li>
+            <li v-if="page_name == 'main'"><a href="#bestsellers">Бестселлеры</a></li>
             <!-- <li>Каталог</a></li> -->
             <li>
-                <RouterLink to="/catalog">Каталог</RouterLink>
+                <RouterLink v-if="page_name == 'main'" to="/catalog">Каталог</RouterLink>
+                <RouterLink v-if="page_name == 'catalog'" to="/">Главная</RouterLink>
             </li>
 
             <!-- This will open order popup -->
@@ -25,11 +26,14 @@
             </svg>
         </button>
         <ul class="header__nav mobile-nav" v-if="visibleMenu">
-            <li><a href="/#about_us">О нас</a></li>
-            <li><a href="/#bestsellers">Бестселлеры</a></li>
+            <li v-if="page_name == 'main'"><a href="#about_us">О нас</a></li>
+            <li v-if="page_name == 'main'"><a href="#bestsellers">Бестселлеры</a></li>
             <!-- <li>Каталог</a></li> -->
-            <li>
+            <li v-if="page_name == 'main'">
                 <RouterLink to="/catalog">Каталог</RouterLink>
+            </li>
+            <li v-if="page_name == 'catalog'">
+                <RouterLink to="/">Главная</RouterLink>
             </li>
 
             <!-- This will open order popup -->
@@ -45,6 +49,12 @@
         data() {
             return{
                 visibleMenu: false,
+            }
+        },
+        props: {
+            page_name: {
+                type: String,
+                required: true,
             }
         },
         methods: {
@@ -125,6 +135,12 @@
             border: none;
             outline: none;
             background: transparent;
+
+            display: none;
+
+            @media(max-width: 600px) {
+                display: block;
+            }
         }
         // .close-btn{
             
