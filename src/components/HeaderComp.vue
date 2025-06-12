@@ -54,6 +54,9 @@
             closeMenu() {
                 this.visibleMenu = false
             },
+            // reloadPage() {
+            //     window.location.reload()
+            // }
         }
     }
 </script>
