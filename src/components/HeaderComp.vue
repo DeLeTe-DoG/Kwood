@@ -1,4 +1,6 @@
 <template>
+    <ContactPopup ref="contact_popup" />
+
     <header class="header">
         <RouterLink to="/">
             <img src="@/assets/images/project-logo.png" class="header__logo" alt="logo">
@@ -13,7 +15,7 @@
             </li>
 
             <!-- This will open order popup -->
-            <li><a href="#order">Заказать украшение</a></li>
+            <li><a @click="$refs.contact_popup.openPopup()">Заказать украшение</a></li>
         </ul>
         <button class="burger-btn" v-if="!visibleMenu" @click="openMenu()">
             <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,13 +39,14 @@
             </li>
 
             <!-- This will open order popup -->
-            <li><a href="#order">Заказать украшение</a></li>
+            <li><a @click="$refs.contact_popup.openPopup()">Заказать украшение</a></li>
         </ul>
     </header>
 </template>
 
 <script>
     import {RouterLink} from 'vue-router'
+    import ContactPopup from './popups/ContactPopup.vue'
 
     export default{
         data() {
@@ -51,6 +54,7 @@
                 visibleMenu: false,
             }
         },
+        components: { ContactPopup },
         props: {
             page_name: {
                 type: String,

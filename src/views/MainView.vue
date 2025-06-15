@@ -23,7 +23,7 @@
                 навыки в работе с природными материалами
             </span></p>
         </div>
-        <img class="about-us__img" src="@/assets/images/goods-photos/heart-pendant/heart-box.png" alt="...">
+        <img class="about-us__img" src="@/assets/images/goods-photos/heart-pendant/1.png" alt="...">
     </section>
     <section class="bestsellers" id="bestsellers">
         <h1 class="bestsellers__title section-title">Популярное</h1>
@@ -61,7 +61,7 @@
     </section> -->
     <section class="catalog-sect" id="catalog">
         <div class="catalog-sect__img-one">
-            <button class="to-shop">В каталог</button>
+            <RouterLink to="/catalog"><button class="to-shop">В каталог</button></RouterLink>
         </div>
         <div class="catalog-sect__img-two">
         </div>
@@ -80,7 +80,7 @@
                 до подбора нужного именно вам размера.
             </p>
             <div class="indiv-order__main__contacts">
-                <a href="https://t.me/Kwood_jewelry" class="indiv-order__main__network">
+                <a href="https://t.me/Kwood_jewelry" class="indiv-order__main__network" target="_blank">
                     <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M27.9472 2.73719C28.008 2.32301 27.9688 1.89811 27.8337 1.50675C27.6987 1.11539 27.4728 0.771899 27.1795 0.512059C26.8862 0.25222 26.5363 0.0855435 26.1662 0.029395C25.7961 -0.0267534 25.4194 0.0296809 25.0753 0.192819L1.27004 11.4594C-0.38937 12.2449 -0.474289 14.9426 1.27004 15.7563C2.9975 16.5654 4.74988 17.3055 6.5239 17.9752C8.1499 18.5792 9.92346 19.1379 11.3448 19.2959C11.7332 19.8186 12.2219 20.3224 12.7202 20.7825C13.4817 21.4866 14.3977 22.2111 15.3444 22.9059C17.2404 24.2986 19.3439 25.6302 20.7611 26.4971C22.4553 27.5299 24.4836 26.3407 24.7871 24.2642L27.9472 2.73719ZM3.93873 13.5922L24.9932 3.62756L22.0447 23.7196C20.6539 22.8699 18.6507 21.5977 16.866 20.2864C16.0434 19.6928 15.2493 19.0508 14.4868 18.3633C14.2831 18.1762 14.0853 17.981 13.8938 17.7781L19.408 11.5814C19.6692 11.288 19.816 10.89 19.8162 10.4749C19.8163 10.0598 19.6697 9.66166 19.4087 9.36804C19.1476 9.07442 18.7935 8.90938 18.4242 8.90923C18.055 8.90909 17.7007 9.07384 17.4395 9.36725L11.4019 16.1538C10.3801 16.0067 8.95733 15.5811 7.39537 15.0021C6.23255 14.5666 5.08038 14.0959 3.94012 13.5907L3.93873 13.5922Z" fill="white"/>
                     </svg>
@@ -97,41 +97,45 @@
 </template>
 
 <script>
-    import heart_box from '@/assets/images/goods-photos/heart-pendant/heart-box.png'
-    import twin_rings_box from '@/assets/images/goods-photos/twin-rings/twin-rings-box.png'
-    import ring_heart_box from '@/assets/images/goods-photos/heart-ring/ring-heart-box.png'
+    import heart_box from '@/assets/images/goods-photos/heart-pendant/1.png'
+    import twin_rings_box from '@/assets/images/goods-photos/twin-rings/2.png'
+    import ring_heart_box from '@/assets/images/goods-photos/heart-ring/1.png'
     import ButtonComp from '@/components/ButtonComp.vue'
     import HeaderComp from '@/components/HeaderComp.vue'
     import {RouterLink} from 'vue-router'
     import FooterComp from '@/components/FooterComp.vue'
     import ShopCard from '@/components/ShopCard.vue'
+    import shop_data from '@/assets/data/dada'
 
     export default {
         components: { ButtonComp, HeaderComp, FooterComp, ShopCard },
         data() {
             return{
                 top_items: [
-                    {
-                        id: 1,
-                        name: 'Подвеска "Сердце"',
-                        cost: 600,
-                        material: 'Амарант',
-                        img: heart_box,
-                    },
-                    {
-                        id: 2,
-                        name: 'Кольца парные',
-                        cost: 1000,
-                        material: 'Дуб',
-                        img: twin_rings_box,
-                    },
-                    {
-                        id: 3,
-                        name: 'Кольцо "Сердце"',
-                        cost: 500,
-                        material: 'Амарант',
-                        img: ring_heart_box,
-                    },
+                    shop_data[0],
+                    shop_data[1],
+                    shop_data[2],
+                    // {
+                    //     id: 1,
+                    //     name: 'Подвеска "Сердце"',
+                    //     cost: 600,
+                    //     material: 'Амарант',
+                    //     img: heart_box,
+                    // },
+                    // {
+                    //     id: 2,
+                    //     name: 'Кольца парные',
+                    //     cost: 1000,
+                    //     material: 'Дуб',
+                    //     img: twin_rings_box,
+                    // },
+                    // {
+                    //     id: 3,
+                    //     name: 'Кольцо "Сердце"',
+                    //     cost: 500,
+                    //     material: 'Амарант',
+                    //     img: ring_heart_box,
+                    // },
                 ],
             }
         }
@@ -349,7 +353,7 @@
             grid-area: A;
             width: 100%;
             height: 100%;
-            background: url('@/assets/images/goods-photos/faceted-ring/faceted-ring.jpg') center;
+            background: url('@/assets/images/goods-photos/faceted-ring/1.jpg') center;
             background-size: cover;
             position: relative;
             img{
@@ -379,13 +383,13 @@
         &__img-two{
             grid-area: B;
             width: 100%;
-            background: url('@/assets/images/goods-photos/twin-rings/twin-rings-box.png') center;
+            background: url('@/assets/images/goods-photos/twin-rings/2.png') center;
             background-size: cover;
         }
         &__img-three{
             grid-area: C;
             width: 100%;
-            background: url('@/assets/images/goods-photos/heart-pendant/heart2.png') center;
+            background: url('@/assets/images/goods-photos/heart-pendant/2.png') center;
             background-size: cover;
         }
     }

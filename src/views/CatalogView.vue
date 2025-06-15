@@ -1,6 +1,7 @@
 <template>
+    <!-- <GoodCard ref="good_card" /> -->
     <HeaderComp :page_name="'catalog'" />
-    <section class="catalog">
+    <section class="catalog" id="catalog-main">
         <button class="mobile-filter-btn" @click="visibleFilter = true">Настроить фильтр</button>
         <div class="catalog-filter">
             <div class="catalog-filter__wrapper">
@@ -119,6 +120,7 @@
             </div> -->
         <div class="catalog__body">
             <ShopCard v-for="item in shop_data" :key="item.id" :item="item" />
+            <!-- <ShopCard @click="$refs.good_card.openModal(item)" v-for="item in shop_data" :key="item.id" :item="item" /> -->
         </div>
         <!-- </div> -->
     </section>
@@ -126,23 +128,27 @@
 </template>
 
 <script>
-    import heart_box from '@/assets/images/goods-photos/heart-pendant/heart-box.png'
-    import twin_rings_box from '@/assets/images/goods-photos/twin-rings/twin-rings-box.png'
-    import ring_heart_box from '@/assets/images/goods-photos/heart-ring/ring-heart-box.png'
+    // import heart_box from '@/assets/images/goods-photos/heart-pendant/heart-box.png'
+    // import twin_rings_box from '@/assets/images/goods-photos/twin-rings/twin-rings-box.png'
+    // import ring_heart_box from '@/assets/images/goods-photos/heart-ring/ring-heart-box.png'
     import HeaderComp from '@/components/HeaderComp.vue'
     import FooterComp from '@/components/FooterComp.vue'
     import ShopCard from '@/components/ShopCard.vue'
 
     import shop_data from '@/assets/data/dada'
     import ButtonComp from '@/components/ButtonComp.vue'
+    import GoodCard from '@/components/popups/GoodCard.vue'
 
     export default {
-        components: { HeaderComp, FooterComp, ShopCard, ButtonComp },
+        components: { HeaderComp, FooterComp, ShopCard, ButtonComp, GoodCard },
         data() {
             return{
                 shop_data: shop_data,
                 visibleFilter: false,
             }
+        },
+        mounted() {
+            window.scrollTo(0, 0)
         }
         // data() {
         //     return{

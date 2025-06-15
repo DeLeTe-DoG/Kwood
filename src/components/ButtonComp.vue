@@ -1,9 +1,25 @@
 <template>
-    <button class="main-button">Отправить заявку</button>
+    <button class="main-button" @click="$refs.contact_popup.openPopup()">Отправить заявку</button>
+
+    <ContactPopup ref="contact_popup" />
 </template>
 
 <script>
-    export default{}
+import ContactPopup from './popups/ContactPopup.vue';
+
+    export default{
+        components: { ContactPopup },
+        data() {
+            return{
+                visiblePopup: false,
+            }
+        },
+        methods: {
+            openPopup() {
+                this.visiblePopup = true
+            }
+        }
+    }
 </script>
 
 <style>
@@ -16,5 +32,6 @@
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 0.02em;
+        cursor: pointer;
     }
 </style>

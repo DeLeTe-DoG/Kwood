@@ -1,13 +1,14 @@
 <template>
+    <GoodCard ref="good_card" />
     <div class="top-item">
-        <div class="top-item__img">
+        <div class="top-item__img" @click="$refs.good_card.openModal(item)">
             <img :src='item.img' alt="">
         </div>
         <div class="top-item__body">
-            <h4 cass="top-item__cost">{{ item.cost }} ₽</h4>
-            <div class="top-item__body__wrapper">
-                <h3 class="top-item__name">{{ item.name }}</h3>
-                <p class="top-item__material">{{ item.material }}</p>
+            <h4 cass="top-item__cost" @click="$refs.good_card.openModal(item)">{{ item.cost }} ₽</h4>
+            <div class="top-item__body__wrapper" @click="$refs.good_card.openModal(item)">
+                <h3 class="top-item__name">{{ item.title }} "{{ item.name }}"</h3>
+                <p class="top-item__material">{{ item.material[0] }}</p>
             </div>
             <ButtonComp />
         </div>
@@ -16,6 +17,7 @@
 
 <script>
 import ButtonComp from '@/components/ButtonComp.vue'
+import GoodCard from './popups/GoodCard.vue';
 
 export default {
     props: {
@@ -24,7 +26,7 @@ export default {
             required: true,
         }
     },
-    components: { ButtonComp }
+    components: { ButtonComp, GoodCard }
 }
 </script>
 
@@ -40,6 +42,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
 
     @media(max-width: 600px) {
         width: 163px !important;
