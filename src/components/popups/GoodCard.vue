@@ -94,6 +94,10 @@ h1,h2,h3,p{
   display: flex;
   align-items: center;
   justify-content: center;
+@media(max-width: 600px) {
+    overflow-y: scroll;
+}
+
 
   &__wrapper {
     width: 1000px;
@@ -103,12 +107,25 @@ h1,h2,h3,p{
     display: flex;
     flex-direction: row;
     gap: 25px;
+    @media(max-width: 600px) {
+        flex-direction: column;
+        // height: unset;
+        min-height: 100vh;
+        height: max-content;
+        overflow-y: scroll;
+        border-radius: 0;
+    }
   }
   &__galary {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 20px 0 15px 20px;
+    @media(max-width: 600px) {
+        padding: 50px 15px 0 15px;
+        width: 100%;
+        // height: max-content;
+    }
 
     &__body {
       width: 550px;
@@ -120,6 +137,9 @@ h1,h2,h3,p{
       scroll-behavior: smooth;
       // padding-bottom: 20px !important;
       // padding: 0 !important;
+      @media(max-width: 600px) {
+        width: 90vw;
+      }
 
       &::-webkit-scrollbar {
         width: 0;
@@ -130,17 +150,28 @@ h1,h2,h3,p{
         flex-direction: row !important;
         width: max-content;
         //   margin-bottom: 15px !important;
+        @media(max-width: 600px) {
+            height: unset;
+        }
 
         &__slide {
             width: 550px !important;
             height: 367px !important;
             border-radius: 12px !important;
           // margin-bottom: 20px !important;
+            @media(max-width: 600px) {
+                width: 90vw !important;
+                height: unset !important;
+            }
 
           img {
             width: 100%;
             height: 100%;
             border-radius: 12px !important;
+            @media(max-width: 600px) {
+                width: 90vw;
+                height: unset;
+            }
           }
         }
       }
@@ -162,6 +193,14 @@ h1,h2,h3,p{
             // border: 1px solid;
             width: 98px;
             height: 65px;
+            @media(max-width: 600px) {
+                width: 68px;
+                height: 45px;
+            }
+        }
+        @media(max-width: 600px) {
+            width: 60px;
+            height: 40px;
         }
         img {
           width: 100%;
@@ -178,15 +217,24 @@ h1,h2,h3,p{
     gap: 30px;
     width: 100%;
 
+    @media(max-width: 600px) {
+        padding: 0 15px 15px 15px;
+    }
     &__title{
         font-size: 40px;
         text-transform: uppercase;
+        @media(max-width: 600px) {
+            font-size: 24px;
+        }
     }
     &__subtitle{
         font-size: 20px;
         text-transform: uppercase;
         color: #969696;
         font-weight: 500;
+        @media(max-width: 600px) {
+            font-size: 15px;
+        }
     }
     &__another{
         margin-bottom: 10px;
@@ -194,6 +242,10 @@ h1,h2,h3,p{
         color: #969696;
         font-weight: 500;
         // text-transform: uppercase;
+        @media(max-width: 600px) {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
     }
     &__wrapper{
         padding-bottom: 10px;
@@ -210,17 +262,26 @@ h1,h2,h3,p{
                 font-size: 20px;
                 text-transform: uppercase;
                 width: max-content !important;
+                @media(max-width: 600px) {
+                    font-size: 14px;
+                }
             }
             &__param{
                 font-size: 16px;
                 color: #969696;
                 font-weight: 500;
                 width: 100%;
+                @media(max-width: 600px) {
+                    font-size: 12px;
+                }
 
                 span{
                     font-size: 16px;
                     color: #969696;
                     font-weight: 500;
+                    @media(max-width: 600px) {
+                        font-size: 12px;
+                    }
                 }
             }
         }
@@ -231,6 +292,10 @@ h1,h2,h3,p{
         align-items: flex-end;
         gap: 25px;
         margin-top: 65px;
+        @media(max-width: 600px) {
+            gap: 20px;
+            margin-top: 0;
+        }
 
         .main-button{
             width: 250px !important;

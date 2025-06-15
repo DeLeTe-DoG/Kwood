@@ -8,6 +8,7 @@
             <h4 cass="top-item__cost" @click="$refs.good_card.openModal(item)">{{ item.cost }} ₽</h4>
             <div class="top-item__body__wrapper" @click="$refs.good_card.openModal(item)">
                 <h3 class="top-item__name">{{ item.title }} "{{ item.name }}"</h3>
+                <h3 class="top-item__name mobile-title">{{ shorterText() }}</h3>
                 <p class="top-item__material">{{ item.material[0] }}</p>
             </div>
             <ButtonComp />
@@ -26,7 +27,13 @@ export default {
             required: true,
         }
     },
-    components: { ButtonComp, GoodCard }
+    components: { ButtonComp, GoodCard },
+    methods: {
+        shorterText() {
+            const text = this.item.title + ' ' + '"' + this.item.name + '"'
+            return text.length > 17 ? text.slice(0, 15) + '...' : text
+        }
+    },
 }
 </script>
 
@@ -88,7 +95,18 @@ export default {
         }
     }
 
-    // &__name{}
+    &__name{
+        &.mobile-title{
+            display: none;
+        }
+        @media(max-width: 600px) {
+            display: none;
+
+            &.mobile-title{
+                display: block !important;
+            }
+        }
+    }
     &__material {
         font-size: 14px;
         color: $grey-color;
