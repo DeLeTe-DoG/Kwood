@@ -7,54 +7,23 @@
             <div class="catalog-filter__wrapper">
                 <h2 class="catalog-filter__wrapper__title">Категории</h2>
                 <ul class="filter-list">
-                    <li class="filter-item">
-                        <input id="rings" class="filter-item__checkbox" type="checkbox">
-                        Кольца
-                    </li>
-                    <li class="filter-item">
-                        <input id="pendant" class="filter-item__checkbox" type="checkbox">
-                        Подвески
-                    </li>
-                    <!-- <li class="filter-item">
-                        <input class="filter-item__checkbox" type="checkbox">
-                        Серьги
-                    </li> -->
-                    <li class="filter-item">
-                        <input id="accessories" class="filter-item__checkbox" type="checkbox">
-                        Аксессуары
-                    </li>
-                    <li class="filter-item">
-                        <input id="all-types" class="filter-item__checkbox" type="checkbox" checked>
-                        Все
+                    <li class="filter-item" v-for="item in filters_categories">
+                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.code" v-model="categories">
+                        {{ item.name }}
                     </li>
                 </ul>
             </div>
             <div class="catalog-filter__wrapper">
                 <h2 class="catalog-filter__wrapper__title">Материал на фото</h2>
                 <ul class="filter-list">
-                    <li class="filter-item">
-                        <input id="dub" class="filter-item__checkbox" type="checkbox">
-                        Дуб
-                    </li>
-                    <li class="filter-item">
-                        <input id="birch" class="filter-item__checkbox" type="checkbox">
-                        Береза
-                    </li>
-                    <li class="filter-item">
-                        <input id="amorant" class="filter-item__checkbox" type="checkbox">
-                        Амарант
-                    </li>
-                    <li class="filter-item">
-                        <input id="klen" class="filter-item__checkbox" type="checkbox">
-                        Клен
-                    </li>
-                    <li class="filter-item">
-                        <input id="all-material" class="filter-item__checkbox" type="checkbox" checked>
-                        Все
+                    <li class="filter-item" v-for="item in filters_materials">
+                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.name" v-model="categories_mat">
+                        {{ item.name }}
                     </li>
                 </ul>
             </div>
-            <button class="add-filter">Применить фильтр</button>
+            <button class="reset-filter" @click="() => {add_filter = false; categories = []; categories_mat = []}">Сбросить фильтр</button>
+            <button class="add-filter" @click="add_filter = true">Применить фильтр</button>
         </div>
         <div class="catalog-filter mobile-filter" v-if="visibleFilter">
             <button class="close-filter" @click="visibleFilter = false">
@@ -65,61 +34,33 @@
             <div class="catalog-filter__wrapper">
                 <h2 class="catalog-filter__wrapper__title">Категории</h2>
                 <ul class="filter-list">
-                    <li class="filter-item">
-                        <input id="rings" class="filter-item__checkbox" type="checkbox">
-                        Кольца
-                    </li>
-                    <li class="filter-item">
-                        <input id="pendant" class="filter-item__checkbox" type="checkbox">
-                        Подвески
-                    </li>
-                    <!-- <li class="filter-item">
-                        <input class="filter-item__checkbox" type="checkbox">
-                        Серьги
-                    </li> -->
-                    <li class="filter-item">
-                        <input id="accessories" class="filter-item__checkbox" type="checkbox">
-                        Аксессуары
-                    </li>
-                    <li class="filter-item">
-                        <input id="all-types" class="filter-item__checkbox" type="checkbox" checked>
-                        Все
+                    <li class="filter-item" v-for="item in filters_categories">
+                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.code" v-model="categories">
+                        {{ item.name }}
                     </li>
                 </ul>
             </div>
             <div class="catalog-filter__wrapper">
                 <h2 class="catalog-filter__wrapper__title">Материал на фото</h2>
                 <ul class="filter-list">
-                    <li class="filter-item">
-                        <input id="dub" class="filter-item__checkbox" type="checkbox">
-                        Дуб
-                    </li>
-                    <li class="filter-item">
-                        <input id="birch" class="filter-item__checkbox" type="checkbox">
-                        Береза
-                    </li>
-                    <li class="filter-item">
-                        <input id="amorant" class="filter-item__checkbox" type="checkbox">
-                        Амарант
-                    </li>
-                    <li class="filter-item">
-                        <input id="klen" class="filter-item__checkbox" type="checkbox">
-                        Клен
-                    </li>
-                    <li class="filter-item">
-                        <input id="all-material" class="filter-item__checkbox" type="checkbox" checked>
-                        Все
+                    <li class="filter-item" v-for="item in filters_materials">
+                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.name" v-model="categories_mat">
+                        {{ item.name }}
                     </li>
                 </ul>
             </div>
-            <button class="add-filter">Применить фильтр</button>
+            <!-- <button class="add-filter">Применить фильтр</button> -->
+            <button class="reset-filter" @click="() => {add_filter = false; categories = []; categories_mat = []}">Сбросить фильтр</button>
+            <button class="add-filter" @click="add_filter = true">Применить фильтр</button>
         </div>
         <!-- <div class="catalog__main"> -->
             <!-- <div class="catalog-top">
                 <h1 class="catalog__title">Каталог</h1>
             </div> -->
         <div class="catalog__body">
-            <ShopCard v-for="item in shop_data" :key="item.id" :item="item" />
+            <ShopCard v-if="!add_filter" v-for="item in shop_data" :key="item.id" :item="item" />
+            <ShopCard v-if="add_filter" v-for="item in filteredGoods" :key="item.id" :item="item" />
+            <p class="catalog__error" v-if="filteredGoods.length == 0 && add_filter">Упс, по вашему запросу ничего не найдено!</p>
             <!-- <ShopCard @click="$refs.good_card.openModal(item)" v-for="item in shop_data" :key="item.id" :item="item" /> -->
         </div>
         <!-- </div> -->
@@ -145,11 +86,65 @@
             return{
                 shop_data: shop_data,
                 visibleFilter: false,
+                filter_ring: 0,
+                categories: [],
+                categories_mat: [],
+                add_filter: false,
+                filters_categories: [
+                    {
+                        name: 'Кольца',
+                        code: 'ring',
+                    },
+                    {
+                        name: 'Подвески',
+                        code: 'pendant',
+                    },
+                    {
+                        name: 'Аксессуары',
+                        code: 'accessories',
+                    },
+                ],
+                filters_materials: [
+                    {
+                        name: 'Дуб',
+                        code: 'dub',
+                    },
+                    {
+                        name: 'Береза',
+                        code: 'bereza',
+                    },
+                    {
+                        name: 'Амарант',
+                        code: 'amarant',
+                    },
+                    {
+                        name: 'Клен',
+                        code: 'klen',
+                    },
+                ],
             }
         },
         mounted() {
             window.scrollTo(0, 0)
-        }
+            // this.filteredGoods()
+        },
+        computed: {
+            filteredGoods() {
+                let data = []
+                if (this.categories.length != 0) {
+                    data = shop_data.filter(x => this.categories.indexOf(x.category.toString()) != -1)
+                
+                    if (this.categories_mat.length != 0) {
+                        data = data.filter(x => this.categories_mat.indexOf(x.material[0].toString()) != -1)
+                    }
+                } 
+                else {
+                    data = this.shop_data
+                }
+
+                return data
+            }
+        },
         // data() {
         //     return{
         //         shop_items: [
@@ -251,6 +246,7 @@
         }
         &-filter{
             width: 100%;
+            max-width: 400px;
             height: max-content;
             padding: 20px 10px 15px 10px;
             background-color: #f5f5f5;
@@ -323,7 +319,7 @@
                     }
                 }
             }
-            .add-filter{
+            .add-filter, .reset-filter{
                 width: 100%;
                 height: 50px;
                 background-color: #60829C;
@@ -333,6 +329,12 @@
                 font-size: 16px;
                 font-weight: 600;
                 letter-spacing: 0.02em;
+            }
+            .reset-filter{
+                background: transparent;
+                color: #000;
+                border: 1px solid #60829C;
+                margin-bottom: 10px;
             }
         }
 

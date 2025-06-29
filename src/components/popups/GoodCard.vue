@@ -1,6 +1,11 @@
 <template>
   <div class="good-popup" v-if="isVisible" @click.self="closeModal()">
     <div class="good-popup__wrapper">
+      <button class="close-btn" @click="closeModal()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.73341 11.0833L2.91675 10.2667L6.18342 7L2.91675 3.73333L3.73341 2.91667L7.00008 6.18333L10.2667 2.91667L11.0834 3.73333L7.81675 7L11.0834 10.2667L10.2667 11.0833L7.00008 7.81667L3.73341 11.0833Z" fill="#235347"/>
+        </svg>
+      </button>
       <div class="good-popup__galary">
         <div class="good-popup__galary__body">
           <div class="slider">
@@ -100,6 +105,7 @@ h1,h2,h3,p{
 
 
   &__wrapper {
+    position: relative;
     width: 1000px;
     height: max-content;
     background: #fff;
@@ -114,6 +120,19 @@ h1,h2,h3,p{
         height: max-content;
         overflow-y: scroll;
         border-radius: 0;
+    }
+    .close-btn{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 20px;
+      top: 20px;
     }
   }
   &__galary {
