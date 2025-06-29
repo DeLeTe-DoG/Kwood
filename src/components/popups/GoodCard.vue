@@ -78,7 +78,8 @@ export default {
     scrollSlider(i) {
         this.activeImg = i
         const slider = document.querySelector('.good-popup__galary__body')
-        slider.scrollTo(i * 550, 0)
+        const slide_width = document.querySelector('.slider__slide').clientWidth
+        slider.scrollTo(i * slide_width, 0)
     }
   },
 };
