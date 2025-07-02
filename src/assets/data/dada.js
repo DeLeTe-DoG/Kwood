@@ -1,17 +1,17 @@
-import heart_pendant1 from '../images/goods-photos/heart-pendant/1.png'
-import heart_pendant2 from '../images/goods-photos/heart-pendant/2.png'
-import heart_pendant3 from '../images/goods-photos/heart-pendant/3.png'
+import heart_pendant1 from '../images/goods-photos/heart-pendant/1.webp'
+import heart_pendant2 from '../images/goods-photos/heart-pendant/2.webp'
+import heart_pendant3 from '../images/goods-photos/heart-pendant/3.webp'
 
-import twin_rings2 from '../images/goods-photos/twin-rings/2.png'
-import twin_rings1 from '../images/goods-photos/twin-rings/1.png'
-import twin_rings3 from '../images/goods-photos/twin-rings/3.png'
-import twin_rings4 from '../images/goods-photos/twin-rings/4.png'
+import twin_rings2 from '../images/goods-photos/twin-rings/2.webp'
+import twin_rings1 from '../images/goods-photos/twin-rings/1.webp'
+import twin_rings3 from '../images/goods-photos/twin-rings/3.webp'
+import twin_rings4 from '../images/goods-photos/twin-rings/4.webp'
 
-import heart_ring1 from '../images/goods-photos/heart-ring/1.png'
+import heart_ring1 from '../images/goods-photos/heart-ring/1.webp'
 
-import faceted_ring1 from '../images/goods-photos/faceted-ring/1.jpg'
+import faceted_ring1 from '../images/goods-photos/faceted-ring/1.webp'
 
-import classic_ring1 from '../images/goods-photos/classic-ring/1.jpg'
+import classic_ring1 from '../images/goods-photos/classic-ring/1.webp'
 
 // import  from '../images/goods-photos/ring-heart-box.png'
 // import ring_heart_box from '../images/goods-photos/ring-heart-box.png'

@@ -51,7 +51,7 @@
             </div>
             <!-- <button class="add-filter">Применить фильтр</button> -->
             <button class="reset-filter" @click="() => {add_filter = false; categories = []; categories_mat = []}">Сбросить фильтр</button>
-            <button class="add-filter" @click="add_filter = true">Применить фильтр</button>
+            <button class="add-filter" @click="() => {add_filter = true; visibleFilter = false}">Применить фильтр</button>
         </div>
         <!-- <div class="catalog__main"> -->
             <!-- <div class="catalog-top">
