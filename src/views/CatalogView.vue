@@ -35,7 +35,7 @@
                 <h2 class="catalog-filter__wrapper__title">Категории</h2>
                 <ul class="filter-list">
                     <li class="filter-item" v-for="item in filters_categories">
-                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.code" v-model="categories">
+                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.code" v-model="categories" @click="add_filter = false">
                         {{ item.name }}
                     </li>
                 </ul>
@@ -44,7 +44,7 @@
                 <h2 class="catalog-filter__wrapper__title">Материал на фото</h2>
                 <ul class="filter-list">
                     <li class="filter-item" v-for="item in filters_materials">
-                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.name" v-model="categories_mat">
+                        <input :id="item.code" class="filter-item__checkbox" type="checkbox" :value="item.name" v-model="categories_mat" @click="add_filter = false">
                         {{ item.name }}
                     </li>
                 </ul>
@@ -137,11 +137,12 @@
                     if (this.categories_mat.length != 0) {
                         data = data.filter(x => this.categories_mat.indexOf(x.material[0].toString()) != -1)
                     }
-                } 
-                else {
+                } else {
                     data = this.shop_data
                 }
-
+                if (this.categories_mat.length != 0) {
+                    data = data.filter(x => this.categories_mat.indexOf(x.material[0].toString()) != -1)
+                }
                 return data
             }
         },
