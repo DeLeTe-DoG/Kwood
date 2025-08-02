@@ -113,8 +113,8 @@
             return{
                 top_items: [
                     shop_data[0],
-                    shop_data[1],
-                    shop_data[2],
+                    shop_data[5],
+                    shop_data[6],
                     // {
                     //     id: 1,
                     //     name: 'Подвеска "Сердце"',

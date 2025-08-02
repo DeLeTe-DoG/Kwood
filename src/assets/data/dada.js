@@ -12,7 +12,9 @@ import heart_ring1 from '../images/goods-photos/heart-ring/1.webp'
 import faceted_ring1 from '../images/goods-photos/faceted-ring/1.webp'
 
 import classic_ring1 from '../images/goods-photos/classic-ring/1.webp'
-
+import sacura_rings1 from '../images/goods-photos/sakura-twin-rings/1.webp'
+import sacura_rings2 from '../images/goods-photos/sakura-twin-rings/2.webp'
+import crow_pendant from '../images/goods-photos/crow-pendant/1.webp'
 // import  from '../images/goods-photos/ring-heart-box.png'
 // import ring_heart_box from '../images/goods-photos/ring-heart-box.png'
 
@@ -28,7 +30,7 @@ const shop_data = [
         galary: [heart_pendant1, heart_pendant2, heart_pendant3],
         img: heart_pendant1,
         another: [
-            ['Комплектация', 'Мешочек для хранения, тряпочка для чистки']
+            ['Комплектация', 'Мешочек для хранения, тряпочка для чистки, цепочка']
         ]
     },
     {
@@ -79,12 +81,40 @@ const shop_data = [
         name: 'Классик',
         category: 'ring',
         cost: 499,
-        material: ['Клен'],
+        material: ['Клер'],
         img: classic_ring1,
         catalog: 'classic-ring',
         galary: [classic_ring1],
         another: [
             ['Комплектация', 'Мешочек для хранения']
+        ]
+    },
+    {
+        id: 6,
+        title: 'Кольца парные',
+        name: 'Сакура',
+        category: 'ring',
+        cost: 1299,
+        material: ['Дуб'],
+        img: sacura_rings2,
+        catalog: 'sacura-twin-rings',
+        galary: [sacura_rings1, sacura_rings2],
+        another: [
+            ['Комплектация', 'Мешочек для хранения']
+        ]
+    },
+    {
+        id: 7,
+        title: 'Подвеска',
+        name: 'Ворон',
+        category: 'pendant',
+        cost: 999,
+        material: ['Дуб'],
+        img: crow_pendant,
+        catalog: 'crow-pendant',
+        galary: [crow_pendant],
+        another: [
+            ['Комплектация', 'Мешочек для хранения, цепочка']
         ]
     },
     // {
